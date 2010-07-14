@@ -24,6 +24,17 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>jgit-repository</id>
+            <url>http://download.eclipse.org/jgit/maven</url>
+        </repository>
+        <repository>
+            <id>teleal.org-repo</id>
+            <url>http://teleal.org/m2</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -35,6 +46,12 @@
     </pluginRepositories>
 
     <dependencies>
+        <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+            <version>0.8.4</version>
+        </dependency>
+        
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
@@ -51,6 +68,11 @@
             <artifactId>specs</artifactId>
             <version>1.2.5</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.teleal.cling</groupId>
+            <artifactId>cling-core</artifactId>
+            <version>1.0-beta3</version>
         </dependency>
     </dependencies>
 
