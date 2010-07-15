@@ -28,6 +28,7 @@
             <id>jgit-repository</id>
             <url>http://download.eclipse.org/jgit/maven</url>
         </repository>
+<!--
         <repository>
             <id>teleal.org-repo</id>
             <url>http://teleal.org/m2</url>
@@ -35,6 +36,7 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+-->
     </repositories>
 
     <pluginRepositories>
@@ -70,10 +72,17 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>net.sbbi.upnp</groupId>
+            <artifactId>upnplib</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+<!--
+        <dependency>
             <groupId>org.teleal.cling</groupId>
             <artifactId>cling-core</artifactId>
             <version>1.0-beta3</version>
         </dependency>
+-->
     </dependencies>
 
     <build>
