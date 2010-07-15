@@ -71,10 +71,17 @@
             <version>1.2.5</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>net.sbbi.upnp</groupId>
             <artifactId>upnplib</artifactId>
             <version>1.0.4</version>
+        </dependency>
+        <!-- dependencies introduced by upnplib -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
         </dependency>
 <!--
         <dependency>
