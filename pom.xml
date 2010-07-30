@@ -28,15 +28,13 @@
             <id>jgit-repository</id>
             <url>http://download.eclipse.org/jgit/maven</url>
         </repository>
-<!--
         <repository>
-            <id>teleal.org-repo</id>
+            <id>teleal-repo</id>
             <url>http://teleal.org/m2</url>
             <snapshots>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
             </snapshots>
         </repository>
--->
     </repositories>
 
     <pluginRepositories>
@@ -71,30 +69,16 @@
             <version>1.2.5</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>net.sbbi.upnp</groupId>
-            <artifactId>upnplib</artifactId>
-            <version>1.0.4</version>
-        </dependency>
-        <!-- dependencies introduced by upnplib -->
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-<!--
         <dependency>
             <groupId>org.teleal.cling</groupId>
             <artifactId>cling-core</artifactId>
             <version>1.0-beta3</version>
         </dependency>
--->
     </dependencies>
 
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
+        <!--<testSourceDirectory>src/test/scala</testSourceDirectory>-->
         <plugins>
             <plugin>
                 <groupId>org.scala-tools</groupId>
