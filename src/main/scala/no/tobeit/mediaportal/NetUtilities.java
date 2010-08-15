@@ -22,7 +22,8 @@ public class NetUtilities {
 
             while (en.hasMoreElements()) {
                 NetworkInterface i = en.nextElement();
-                System.out.println("NI: " + i.getDisplayName());
+                System.out.println("NI: " + i.getDisplayName() + " " + i.isVirtual());
+                // I don't want VirtualBox NI's
                 if(i.getDisplayName().contains("virbr"))
                     continue;
                 
