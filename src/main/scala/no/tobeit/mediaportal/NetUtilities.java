@@ -1,9 +1,11 @@
 package no.tobeit.mediaportal;
 
+import java.net.DatagramSocket;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.net.Socket;
 import java.net.SocketException;
 import java.util.Enumeration;
 
@@ -16,6 +18,20 @@ import java.util.logging.Logger;
  */
 public class NetUtilities {
 
+    public static InetAddress getNonLoopbackAddress() {
+        InetAddress retVal = null;
+        
+        try {
+            Socket s = new Socket("google.com", 80);
+            retVal = s.getLocalAddress();
+            s.close();
+        } catch (Exception ex) {
+            Logger.getLogger(NetUtilities.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return retVal;
+    }
+    
     public static InetAddress getFirstNonLoopbackAddress(boolean preferIpv4, boolean preferIPv6) {
         try {
             Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();

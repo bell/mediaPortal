@@ -83,7 +83,7 @@ public class UpnpTester implements Runnable {
                 getInput().addValue(new UnsignedIntegerTwoBytes(1234)); // NewInternalPort
 
                 // TODO: This may return null
-                String localhost = NetUtilities.getFirstNonLoopbackAddress(true,false).getHostAddress();
+                String localhost = NetUtilities.getNonLoopbackAddress().getHostAddress();
                 System.out.println("Adding port to : " + localhost);
 
                 getInput().addValue(localhost);                         // NewInternalClient
