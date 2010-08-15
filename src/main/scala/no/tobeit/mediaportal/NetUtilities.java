@@ -22,7 +22,10 @@ public class NetUtilities {
 
             while (en.hasMoreElements()) {
                 NetworkInterface i = en.nextElement();
-
+                System.out.println("NI: " + i.getDisplayName());
+                if(i.getDisplayName().contains("virbr"))
+                    continue;
+                
                 for (Enumeration<InetAddress> en2 = i.getInetAddresses(); en2.hasMoreElements();) {
                     InetAddress addr = en2.nextElement();
                     if (!addr.isLoopbackAddress()) {

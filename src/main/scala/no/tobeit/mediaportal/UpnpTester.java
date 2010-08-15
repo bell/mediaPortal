@@ -1,14 +1,5 @@
 package no.tobeit.mediaportal;
 
-import java.net.DatagramSocket;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.InterfaceAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.Enumeration;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.teleal.cling.*;
 import org.teleal.cling.controlpoint.ActionCallback;
 import org.teleal.cling.model.action.ActionException;
