@@ -17,14 +17,6 @@
             <url>http://scala-tools.org/repo-releases</url>
         </repository>
         <repository>
-            <id>scala-tools.org snapshots</id>
-            <name>Scala-Tools Maven2 Snapshot Repository</name>
-            <url>http://scala-tools.org/repo-snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
             <id>jgit-repository</id>
             <url>http://download.eclipse.org/jgit/maven</url>
         </repository>
@@ -51,6 +43,12 @@
             <artifactId>org.eclipse.jgit</artifactId>
             <version>0.8.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.specs</groupId>
+            <artifactId>specs</artifactId>
+            <version>1.2.5</version>
+            <scope>test</scope>
+        </dependency>
         
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -60,13 +58,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.4</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.specs</groupId>
-            <artifactId>specs</artifactId>
-            <version>1.2.5</version>
+            <version>4.8.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -78,17 +70,12 @@
 
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
-        <!--<testSourceDirectory>src/test/scala</testSourceDirectory>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
-                    <!-- Bug in plugin
-                    <compilerArguments>
-                        <sourcepath>${project.basedir}/src/main/java</sourcepath>
-                    </compilerArguments>-->
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
