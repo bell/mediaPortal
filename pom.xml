@@ -7,7 +7,7 @@
     <inceptionYear>2008</inceptionYear>
     <name>Ũber cool mediaportal</name>
     <properties>
-        <scala.version>2.8.0.RC3</scala.version>
+        <scala.version>2.8.0</scala.version>
     </properties>
 
     <repositories>
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>org.teleal.cling</groupId>
             <artifactId>cling-core</artifactId>
-            <version>1.0-beta3</version>
+            <version>1.0-beta4</version>
         </dependency>
     </dependencies>
 
@@ -80,6 +80,20 @@
         <sourceDirectory>src/main/scala</sourceDirectory>
         <!--<testSourceDirectory>src/test/scala</testSourceDirectory>-->
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <!-- Bug in plugin
+                    <compilerArguments>
+                        <sourcepath>${project.basedir}/src/main/java</sourcepath>
+                    </compilerArguments>-->
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.scala-tools</groupId>
                 <artifactId>maven-scala-plugin</artifactId>
