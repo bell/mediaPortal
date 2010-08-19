@@ -30,23 +30,22 @@ public class UpnpTester implements Runnable {
 
     RegistryListener createRegistryListener(final UpnpService upnpService) {
         return new DefaultRegistryListener() {
-
             ServiceId serviceId = new UDAServiceId("WANIPConn1");
 
             @Override
             public void remoteDeviceAdded(Registry registry, RemoteDevice device) {
-                DeviceService wanipconn;
-                if ((wanipconn = device.findDeviceService(serviceId)) != null) {
+                RemoteService wanipconn;
+                if ((wanipconn = device.findService(serviceId)) != null) {
                     System.out.println("Service discovered: " + wanipconn);
-                    executeAction(upnpService, wanipconn.getService());
+                    executeAction(upnpService, wanipconn);
                 }
 
             }
 
             @Override
             public void remoteDeviceRemoved(Registry registry, RemoteDevice device) {
-                DeviceService wanipconn;
-                if ((wanipconn = device.findDeviceService(serviceId)) != null) {
+                RemoteService wanipconn;
+                if ((wanipconn = device.findService(serviceId)) != null) {
                     System.out.println("Service disappeared: " + wanipconn);
                 }
             }
@@ -82,7 +81,12 @@ public class UpnpTester implements Runnable {
                 getInput().addValue(new UnsignedIntegerTwoBytes(1234)); // NewExternalPort
                 getInput().addValue("TCP");                             // NewProtocol
                 getInput().addValue(new UnsignedIntegerTwoBytes(1234)); // NewInternalPort
-                getInput().addValue("192.168.1.112");                   // NewInternalClient
+
+                // TODO: This may return null
+                String localhost = NetUtilities.getNonLoopbackAddress().getHostAddress();
+                System.out.println("Adding port to : " + localhost);
+
+                getInput().addValue(localhost);                         // NewInternalClient
                 getInput().addValue(true);                              // NewEnabled
                 getInput().addValue("Description");                     // NewPortMappingDescription
                 getInput().addValue(new UnsignedIntegerFourBytes(0));   // NewLeaseDuration
@@ -105,6 +109,7 @@ public class UpnpTester implements Runnable {
             }
         }
     }
+
 
     public static void main(String[] args) throws Exception {
         Thread client = new Thread(new UpnpTester());
