@@ -17,6 +17,14 @@
             <url>http://scala-tools.org/repo-releases</url>
         </repository>
         <repository>
+            <id>scala-tools.org-snapshot</id>
+            <name>Scala-Tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
             <id>jgit-repository</id>
             <url>http://download.eclipse.org/jgit/maven</url>
         </repository>
@@ -66,6 +74,12 @@
             <artifactId>cling-core</artifactId>
             <version>1.0-beta4</version>
         </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest</artifactId>
+            <version>1.2-for-scala-2.8.0.final-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -6,7 +6,15 @@ import java.io.File
 class RichFile(file: File) {
   
   def children = new Iterable[File] {
-    def elements = if (file.isDirectory) file.listFiles.iterator else Iterator.empty
+/*    def elements = if (file.isDirectory) file.listFiles.elements else Iterator.empty;*/
+    @Override
+    def iterator =
+      if (file != null && file.isDirectory) {
+        val files = file.listFiles
+        if (files != null) files.iterator else Iterator.empty
+      } else {
+        Iterator.empty
+      }
   }
   
   def andTree : Iterable[File] = (
