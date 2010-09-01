@@ -6,7 +6,6 @@ import java.io.File
 class RichFile(file: File) {
   
   def children = new Iterable[File] {
-/*    def elements = if (file.isDirectory) file.listFiles.elements else Iterator.empty;*/
     @Override
     def iterator =
       if (file != null && file.isDirectory) {

@@ -9,12 +9,23 @@ object FileSearcher {
   def findFilesOfType(baseDir:String, validTypes: Set[String]): Iterable[File] = {
     val validSet = validTypes
     if (validTypes.isEmpty) {
-      println("validTypes er tomme... " + validTypes)
       return Iterable.empty
     }
-    for (f <- new File(baseDir).andTree;
-         if !validSet.isEmpty && f.getName.contains(".") && validSet.contains(f.getName.substring(f.getName.lastIndexOf("."))))
-           yield f
+    if (!validSet.isEmpty) {
+      return for (f <- new File(baseDir).andTree; if endsWith(f.getName, validTypes))
+             yield f
+    }
+    Iterable.empty
+  }
+
+  def endsWith(name:String, validTypes:Set[String]):Boolean = {
+    if (name.contains(".")) {
+      val indexOfDot = name.lastIndexOf(".") + 1;
+      if (validTypes.contains(name.substring(indexOfDot))) {
+        return true
+      }
+    }
+    false
   }
   
 }
